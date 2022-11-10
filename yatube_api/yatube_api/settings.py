@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = 'i87557$3xb%#c3p-$9&0$kq$@56j87+@ogairu48a+dy-'
+SECRET_KEY = '784h9-@#$62jHkn$%vh2568@&?^bhs75#$%nkns @!-0=$'
 
 DEBUG = True
 
@@ -19,9 +19,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'posts.apps.PostsConfig',
-    'api.apps.ApiConfig',
+    'api',
+    'posts',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
